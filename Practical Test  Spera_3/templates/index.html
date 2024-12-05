@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practical Test: Spera</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div>
+        <h1>Churn Prediction</h1>
+        <form action="/predict" method="post">
+            <label for="gender">Gender <img src="{{ url_for('static', filename='icons/Gender.png') }}" alt="Gender Icon"></label>
+            <select name="gender" id="gender">
+                <option value="0">Female</option>
+                <option value="1">Male</option>
+            </select>
+
+            <label for="senior_citizen">Senior Citizen <img src="{{ url_for('static', filename='icons/Senior Citizen.png') }}" alt="Senior Citizen Icon"></label>
+            <select name="senior_citizen" id="senior_citizen">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="partner">Partner <img src="{{ url_for('static', filename='icons/Partner.png') }}" alt="Partner Icon"></label>
+            <select name="partner" id="partner">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="dependents">Dependents <img src="{{ url_for('static', filename='icons/Dependents.png') }}" alt="Dependents Icon"></label>
+            <select name="dependents" id="dependents">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="tenure">Tenure <img src="{{ url_for('static', filename='icons/Tenure.png') }}" alt="Tenure Icon"></label>
+            <input type="text" name="tenure" id="tenure">
+
+            <label for="phone_service">Phone Service <img src="{{ url_for('static', filename='icons/Phone Service.png') }}" alt="Phone Service Icon"></label>
+            <select name="phone_service" id="phone_service">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="multiple_lines">Multiple Lines <img src="{{ url_for('static', filename='icons/Multiple Lines.png') }}" alt="Multiple Lines Icon"></label>
+            <select name="multiple_lines" id="multiple_lines">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="internet_service">Internet Service <img src="{{ url_for('static', filename='icons/Internet Service.png') }}" alt="Internet Service Icon"></label>
+            <select name="internet_service" id="internet_service">
+                <option value="DSL">DSL</option>
+                <option value="Fiber optic">Fiber optic</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="online_security">Online Security <img src="{{ url_for('static', filename='icons/Online Security.png') }}" alt="Online Security Icon"></label>
+            <select name="online_security" id="online_security">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="online_backup">Online Backup <img src="{{ url_for('static', filename='icons/Online Backup.png') }}" alt="Online Backup Icon"></label>
+            <select name="online_backup" id="online_backup">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="device_protection">Device Protection <img src="{{ url_for('static', filename='icons/Device Protection.png') }}" alt="Device Protection Icon"></label>
+            <select name="device_protection" id="device_protection">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="tech_support">Tech Support <img src="{{ url_for('static', filename='icons/Tech Support.png') }}" alt="Tech Support Icon"></label>
+            <select name="tech_support" id="tech_support">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="streaming_tv">Streaming TV <img src="{{ url_for('static', filename='icons/Streaming TV.png') }}" alt="Streaming TV Icon"></label>
+            <select name="streaming_tv" id="streaming_tv">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="streaming_movies">Streaming Movies <img src="{{ url_for('static', filename='icons/Streaming Movies.png') }}" alt="Streaming Movies Icon"></label>
+            <select name="streaming_movies" id="streaming_movies">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="contract">Contract <img src="{{ url_for('static', filename='icons/Contract.png') }}" alt="Contract Icon"></label>
+            <select name="contract" id="contract">
+                <option value="Month-to-month">Month-to-month</option>
+                <option value="One year">One year</option>
+                <option value="Two year">Two year</option>
+            </select>
+
+            <label for="paperless_billing">Paperless Billing <img src="{{ url_for('static', filename='icons/Paperless Billing.png') }}" alt="Paperless Billing Icon"></label>
+            <select name="paperless_billing" id="paperless_billing">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="payment_method">Payment Method <img src="{{ url_for('static', filename='icons/Payment Method.png') }}" alt="Payment Method Icon"></label>
+            <select name="payment_method" id="payment_method">
+                <option value="Bank transfer">Bank transfer</option>
+                <option value="Credit card">Credit card</option>
+                <option value="Electronic check">Electronic check</option>
+                <option value="Mailed check">Mailed check</option>
+            </select>
+
+            <label for="monthly_charges">Monthly Charges <img src="{{ url_for('static', filename='icons/Monthly Charges.png') }}" alt="Monthly Charges Icon"></label>
+            <input type="text" name="monthly_charges" id="monthly_charges">
+
+            <label for="total_charges">Total Charges <img src="{{ url_for('static', filename='icons/Total Charges.png') }}" alt="Total Charges Icon"></label>
+            <input type="text" name="total_charges" id="total_charges">
+
+            <input type="submit" value="Predict">
+        </form>
+        {% if prediction_text %}
+            <h2>{{ prediction_text }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
